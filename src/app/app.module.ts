@@ -7,6 +7,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
+import { CounterModule } from './counter/counter.module';
 
 @NgModule({
   declarations: [
@@ -15,9 +16,10 @@ import { StoreModule } from '@ngrx/store';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    StoreDevtoolsModule.instrument({ name:"Counter",maxAge: 25, logOnly: environment.production }),
     EffectsModule.forRoot([]),
-    StoreModule.forRoot({}, {})
+    StoreModule.forRoot({}, {}),
+    StoreDevtoolsModule.instrument({ name: " Counter ", maxAge: 25, logOnly: environment.production }),
+    CounterModule
   ],
   providers: [],
   bootstrap: [AppComponent]
